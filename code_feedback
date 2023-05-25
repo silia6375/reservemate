@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class RestaurantReservation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Επιλογή πόλης
+        System.out.println("RESERVEMATE");
+        System.out.print("Επιλέξτε πόλη για το εστιατόριο: ", "ISO-8859-7");
+        String city = scanner.nextLine();
+        
+        // Δείχνει τα εστιατόρια της πόλης
+        System.out.println("Εστιατόρια στην " + city + ":", "ISO-8859-7");
+        
+        // Επιλογή εστιατορίου
+        System.out.print("Γράψτε το όνομα του επιλεγμένου εστιατορίου: ", "ISO-8859-7");
+        String restaurantNumber = scanner.nextLine();
+        
+        // Δείχνει στοιχεία για το εστιατόριο
+        System.out.println("Λεπτομέρειες:", "ISO-8859-7");
+       
+        // Αν έχει δειπνήσει ο πελάτης ή οχι
+        System.out.print("Έχετε δειπνήσει στο συγκεκριμένο εστιατόριο (yes/no): ", "ISO-8859-7");
+        String confirmation = scanner.nextLine();
+        
+        if (confirmation.equalsIgnoreCase("yes")) {
+            // Άφησε review ή like
+            System.out.println("Ευχαριστούμε για την επιβεβαίωση σας!", "ISO-8859-7");
+            System.out.print("Αφήστε κάποιο review για το εστιατόριο: ", "ISO-8859-7");
+            String review = scanner.nextLine();
+            
+             
+            System.out.println("Το σχόλιο σας καταχωρήθηκε!", "ISO-8859-7");
+        } else {
+            System.out.println("Ευχαριστούμε!", "ISO-8859-7");
+        }
+        
+        // Συνέχεια πλοήγησης
+        System.out.println("Μπορείτε να συνεχίσετε την πλοήγηση ή να βγείτε από τη σελίδα.", "ISO-8859-7");
+       
+        scanner.close();
+    }
+}
