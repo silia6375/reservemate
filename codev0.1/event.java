@@ -29,4 +29,23 @@ public class Event {
         System.out.println("Event added successfully.");
     }
 
+    // Method to update the description, start_time, and/or end_time of an event using eventID
+    public static void updateEvent(int eventID, String newDescription, Date newStartTime, Date newEndTime) {
+        Event event = eventMap.get(eventID);
+        if (event != null) {
+            if (newDescription != null) {
+                event.setDescription(newDescription);
+            }
+            if (newStartTime != null) {
+                event.setStartTime(newStartTime);
+            }
+            if (newEndTime != null) {
+                event.setEndTime(newEndTime);
+            }
+            System.out.println("Event updated successfully.");
+        } else {
+            System.out.println("Event not found.");
+        }
+    }
+
 }
