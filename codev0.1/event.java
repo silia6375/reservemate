@@ -35,6 +35,22 @@ public class Event {
     System.out.println("Event added successfully.");
 }
 
+// Method to get all events in the same city
+public static List<Event> getEventsInCity(String city) {
+    List<Event> eventsInCity = new ArrayList<>();
+    for (Event event : eventMap.values()) {
+        if (event.getCity().equalsIgnoreCase(city)) {
+            eventsInCity.add(event);
+        }
+    }
+    return eventsInCity;
+}
+
+// Method to get the values of a specific event using eventID
+public static Event getEvent(int eventID) {
+    return eventMap.get(eventID);
+}
+
     // Method to update the description, start_time, and/or end_time of an event using eventID
     public static void updateEvent(int eventID, String newDescription, Date newStartTime, Date newEndTime) {
         Event event = eventMap.get(eventID);
