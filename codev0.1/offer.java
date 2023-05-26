@@ -20,3 +20,10 @@ public class Offer {
         this.discount = discount;
         this.minSpent = minSpent;
     }
+    // Method to add a new offer
+    public static void addNewOffer(int id, int restaurantID, String name, String description, float discount, float minSpent) {
+        Offer offer = new Offer(id, restaurantID, name, description, discount, minSpent);
+        offerMap.put(id, offer);
+        System.out.println("Offer added successfully.");
+    }
+}
