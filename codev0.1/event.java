@@ -1,11 +1,16 @@
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Event {
     private int eventID;
     private int restaurantID;
     private String name;
+    private String city;
     private String description;
     private Date start_time;
     private Date end_time;
@@ -17,17 +22,18 @@ public class Event {
         this.eventID = eventID;
         this.restaurantID = restaurantID;
         this.name = name;
+        this.city = city;
         this.description = description;
         this.start_time = start_time;
         this.end_time = end_time;
     }
 
-    // Method to add a new event
-    public static void addNewEvent(int eventID, int restaurantID, String name, String description, Date start_time, Date end_time) {
-        Event event = new Event(eventID, restaurantID, name, description, start_time, end_time);
-        eventMap.put(eventID, event);
-        System.out.println("Event added successfully.");
-    }
+   // Method to add a new event
+   public static void addNewEvent(int eventID, int restaurantID, String name, String city, String description, Date start_time, Date end_time) {
+    Event event = new Event(eventID, restaurantID, name, city, description, start_time, end_time);
+    eventMap.put(eventID, event);
+    System.out.println("Event added successfully.");
+}
 
     // Method to update the description, start_time, and/or end_time of an event using eventID
     public static void updateEvent(int eventID, String newDescription, Date newStartTime, Date newEndTime) {
