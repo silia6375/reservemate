@@ -1,37 +1,47 @@
 import java.util.Scanner;
+import java.util.Map;
+import java.util.List;
 
-public class RestaurantReservation {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class Feedback {
+    private class int reviewID;
+    private class int userID;
+    private class int restaurantID;
+    private class int rating;
+    private class string description;
+    private class int likes;
 
-        System.out.println("RESERVEMATE");
-        System.out.print("Επιλέξτε πόλη για το εστιατόριο: ", "ISO-8859-7");
-        String city = scanner.nextLine();
-        
-        System.out.println("Εστιατόρια στην " + city + ":", "ISO-8859-7");
+    public static Map<Integer, Feedback> feedbackMap = new HashMap<>();
     
-        System.out.print("Γράψτε το όνομα του επιλεγμένου εστιατορίου: ", "ISO-8859-7");
-        String restaurantNumber = scanner.nextLine();
-     
-        System.out.println("Λεπτομέρειες:", "ISO-8859-7");
-    
-        System.out.print("Έχετε δειπνήσει στο συγκεκριμένο εστιατόριο (yes/no): ", "ISO-8859-7");
-        String confirmation = scanner.nextLine();
-        
-        if (confirmation.equalsIgnoreCase("yes")) {
-        
-            System.out.println("Ευχαριστούμε για την επιβεβαίωση σας!", "ISO-8859-7");
-            System.out.print("Αφήστε κάποιο review για το εστιατόριο: ", "ISO-8859-7");
-            String review = scanner.nextLine();
-            
-             
-            System.out.println("Το σχόλιο σας καταχωρήθηκε!", "ISO-8859-7");
+    public Feedback(int reviewID, int userID, int restaurantID, int rating, string description, int likes) {
+        this.reviewID = reviewID;
+        this.userID = userID;
+        this.restaurantID = restauratnID;
+        this.rating = rating;
+        this.description = description;
+        this.likes = likes;
+}
+
+public static void createNewReview(int reviewID, int userID, int restaurantID, int rating, string description, int likes) {
+    Feedback review = new Feedback(int reviewID, int userID, int restaurantID, int rating, string description, int likes);
+    reviewMap.put(reviewID, review);
+    System.out.println("Review added successfully.");
+}
+
+public static void updateReview(int rating, String description, int likes) {
+    this.rating = rating;
+    this.description = description;
+    this.likes = likes;
+}
+
+public static void deleteReview(int reviewID) {
+    Feedback review = getReviewById(reviewID);
+     public void deleteReview(int reviewID) {
+        Review review = getReviewByID(reviewID);
+        if (review != null) {
+            reviewList.remove(review);
+            System.out.println("Review deleted successfully.");
         } else {
-            System.out.println("Ευχαριστούμε!", "ISO-8859-7");
+            System.out.println("Review not found.");
         }
-        
-        System.out.println("Μπορείτε να συνεχίσετε την πλοήγηση ή να βγείτε από τη σελίδα.", "ISO-8859-7");
-       
-        scanner.close();
     }
 }
