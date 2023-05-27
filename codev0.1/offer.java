@@ -49,4 +49,15 @@ public static void updateOfferInfo(int id, float newDiscount, float newMinSpent)
     }
 }
 
+
+    // Method to delete an offer using id
+    public static void deleteOffer(int id) {
+        Offer offer = offerMap.remove(id);
+        if (offer != null) {
+            System.out.println("Offer deleted successfully.");
+        } else {
+            System.out.println("Offer not found.");
+        }
+    }
+
 }
