@@ -33,5 +33,20 @@ public class Offer {
         System.out.println("Offer added successfully.");
 
     }
+// Method to update the discount and/or minSpent of an offer using id
+public static void updateOfferInfo(int id, float newDiscount, float newMinSpent) {
+    Offer offer = offerMap.get(id);
+    if (offer != null) {
+        if (newDiscount >= 0) {
+            offer.setDiscount(newDiscount);
+        }
+        if (newMinSpent >= 0) {
+            offer.setMinSpent(newMinSpent);
+        }
+        System.out.println("Offer information updated successfully.");
+    } else {
+        System.out.println("Offer not found.");
+    }
+}
 
 }
