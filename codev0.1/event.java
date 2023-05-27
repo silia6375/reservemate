@@ -69,5 +69,14 @@ public static Event getEvent(int eventID) {
             System.out.println("Event not found.");
         }
     }
+// Method to delete an event using eventID
+public static void deleteEvent(int eventID) {
+    Event event = eventMap.remove(eventID);
+    if (event != null) {
+        System.out.println("Event deleted successfully.");
+    } else {
+        System.out.println("Event not found.");
+    }
+}
 
 }
