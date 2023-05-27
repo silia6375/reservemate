@@ -1,5 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Offer {
     private int id;
@@ -8,23 +11,27 @@ public class Offer {
     private String description;
     private float discount;
     private float minSpent;
+    private String couponcode;
     
     private static Map<Integer, Offer> offerMap = new HashMap<>(); // Map to store offers by id
     
     // Constructor
-    public Offer(int id, int restaurantID, String name, String description, float discount, float minSpent) {
+    public Offer(int id, int restaurantID, String name, String description, float discount, float minSpent, String couponcode) {
         this.id = id;
         this.restaurantID = restaurantID;
         this.name = name;
         this.description = description;
         this.discount = discount;
         this.minSpent = minSpent;
+        this.couponcode = couponcode;
+
     }
     // Method to add a new offer
-    public static void addNewOffer(int id, int restaurantID, String name, String description, float discount, float minSpent) {
-        Offer offer = new Offer(id, restaurantID, name, description, discount, minSpent);
+    public static void addNewOffer(int id, int restaurantID, String name, String description, float discount, float minSpent, String couponcode) {
+        Offer offer = new Offer(id, restaurantID, name, description, discount, minSpent, couponcode);
         offerMap.put(id, offer);
         System.out.println("Offer added successfully.");
+
     }
 
 }
