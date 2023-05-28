@@ -50,7 +50,7 @@ public static void updateOfferInfo(int id, float newDiscount, float newMinSpent)
 }
 
 
-    // Method to delete an offer using id
+ // Method to delete an offer using id
     public static void deleteOffer(int id) {
         Offer offer = offerMap.remove(id);
         if (offer != null) {
@@ -59,5 +59,18 @@ public static void updateOfferInfo(int id, float newDiscount, float newMinSpent)
             System.out.println("Offer not found.");
         }
     }
+
+
+    // Method to get all cities with offers
+    public static List<String> getCitiesWithOffers() {
+        List<String> citiesWithOffers = new ArrayList<>();
+        for (Offer offer : offerMap.values()) {
+            if (!citiesWithOffers.contains(offer.getCity())) {
+                citiesWithOffers.add(offer.getCity());
+            }
+        }
+        return citiesWithOffers;
+    }
+
 
 }
