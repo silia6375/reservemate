@@ -80,8 +80,8 @@ public static void deleteEvent(int eventID) {
 }
 
 }
-// Getters and Setters (removed for brevity)
 
+// Getters and Setters 
 public static void main(String[] args) {
     // Sample usage of the methods
     Date startTime = new Date(); // Replace with desired start time
