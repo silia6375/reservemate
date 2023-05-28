@@ -80,3 +80,64 @@ public static void deleteEvent(int eventID) {
 }
 
 }
+// Getters and Setters (removed for brevity)
+
+public static void main(String[] args) {
+    // Sample usage of the methods
+    Date startTime = new Date(); // Replace with desired start time
+    Date endTime = new Date(); // Replace with desired end time
+
+    addNewEvent(1, 123, "Event 1", "City A", "Description 1", startTime, endTime);
+    addNewEvent(2, 456, "Event 2", "City B", "Description 2", startTime, endTime);
+    addNewEvent(3, 789, "Event 3", "City A", "Description 3", startTime, endTime);
+
+    Scanner scanner = new Scanner(System.in);
+
+    // Step 1: Display all cities with events
+    System.out.println("Available cities with events:");
+    List<String> citiesWithEvents = getCitiesWithEvents();
+    for (String city : citiesWithEvents) {
+        System.out.println(city);
+    }
+
+    // Step 2: User selects a city
+    System.out.println("Enter the name of the city: ");
+    String selectedCity = scanner.nextLine();
+
+    // Step 3: Display all events in the selected city
+    List<Event> eventsInCity = getEventsInCity(selectedCity);
+    System.out.println("Events in " + selectedCity + ":");
+    for (Event event : eventsInCity) {
+        System.out.println(event.name);
+    }
+
+    // Step 4: User selects an event by its name
+    System.out.println("Enter the name of the event: ");
+    String selectedEvent = scanner.nextLine();
+
+    // Step 5: Display event information
+    Event event = getEventByName(selectedEvent);
+    if (event != null) {
+        System.out.println("Event Name: " + event.name);
+        System.out.println("Event Description: " + event.description);
+        System.out.println("Event Start Time: " + event.start_time);
+        System.out.println("Event End Time: " + event.end_time);
+    } else {
+        System.out.println("Event not found.");
+    }
+
+    // Step 6: Prompt the user if they want to make a reservation
+    System.out.println("Do you want to make a reservation for this event? (yes/no): ");
+    String choice = scanner.nextLine();
+
+    if (choice.equalsIgnoreCase("yes")) {
+        // Step 7: Proceed with the reservation process
+        System.out.println("Reservation process initiated...");
+        // Add your reservation code here
+    } else {
+        System.out.println("Reservation not made. End of use case.");
+    }
+
+    // Step 8: End the use case
+    scanner.close();
+}
