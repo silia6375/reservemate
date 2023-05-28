@@ -72,7 +72,7 @@ public static void updateOfferInfo(int id, float newDiscount, float newMinSpent)
         return citiesWithOffers;
     }
 
-// Method to get all restaurants in a selected city with offers
+    // Method to get all restaurants in a selected city with offers
 public static List<Integer> getRestaurantsInCityWithOffers(String city) {
     List<Integer> restaurantsInCityWithOffers = new ArrayList<>();
     for (Offer offer : offerMap.values()) {
@@ -82,5 +82,16 @@ public static List<Integer> getRestaurantsInCityWithOffers(String city) {
     }
     return restaurantsInCityWithOffers;
 }
+// Method to get offers of a selected restaurant
+public static List<Offer> getOffersOfRestaurant(int restaurantID) {
+    List<Offer> offersOfRestaurant = new ArrayList<>();
+    for (Offer offer : offerMap.values()) {
+        if (offer.getRestaurantID() == restaurantID) {
+            offersOfRestaurant.add(offer);
+        }
+    }
+    return offersOfRestaurant;
+}
+
 
 }
