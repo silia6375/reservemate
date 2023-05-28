@@ -72,5 +72,15 @@ public static void updateOfferInfo(int id, float newDiscount, float newMinSpent)
         return citiesWithOffers;
     }
 
+// Method to get all restaurants in a selected city with offers
+public static List<Integer> getRestaurantsInCityWithOffers(String city) {
+    List<Integer> restaurantsInCityWithOffers = new ArrayList<>();
+    for (Offer offer : offerMap.values()) {
+        if (offer.getCity().equalsIgnoreCase(city)) {
+            restaurantsInCityWithOffers.add(offer.getRestaurantID());
+        }
+    }
+    return restaurantsInCityWithOffers;
+}
 
 }
