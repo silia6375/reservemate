@@ -95,3 +95,84 @@ public static List<Offer> getOffersOfRestaurant(int restaurantID) {
 
 
 }
+// Getters and Setters 
+    
+public static void main(String[] args) {
+
+    // Sample usage of the methods
+    addNewOffer(1, 123, "Offer 1", "Description 1", "Coupon Code 1", 0.2f, 50.0f, "City A");
+
+    Scanner scanner = new Scanner(System.in);
+
+    // Step 1: Display all cities with offers
+    List<String> citiesWithOffers = getCitiesWithOffers();
+    System.out.println("Cities with offers: ");
+    for (String city : citiesWithOffers) {
+        System.out.println(city);
+    }
+
+    // Step 2: User selects a city
+    System.out.println("Enter the name of the city: ");
+    String selectedCity = scanner.nextLine();
+
+    // Step 3: Display all restaurants in the selected city with offers
+    List<Integer> restaurantsInCityWithOffers = getRestaurantsInCityWithOffers(selectedCity);
+    System.out.println("Restaurants in " + selectedCity + " with offers: ");
+    for (Integer restaurantID : restaurantsInCityWithOffers) {
+        System.out.println("Restaurant ID: " + restaurantID);
+        // Display other restaurant details if available
+    }
+
+    // Step 4: User selects a restaurant by its name
+    System.out.println("Enter the name of the restaurant: ");
+    String selectedRestaurantName = scanner.nextLine();
+
+    // Step 5: Display list of offers of the selected restaurant
+    int selectedRestaurantID = -1;
+    for (Integer restaurantID : restaurantsInCityWithOffers) {
+        // Match restaurant name with ID
+        if (selectedRestaurantName.equalsIgnoreCase("Restaurant Name")) {
+            selectedRestaurantID = restaurantID;
+            break;
+        }
+    }
+
+    if (selectedRestaurantID != -1) {
+        List<Offer> offersOfRestaurant = getOffersOfRestaurant(selectedRestaurantID);
+
+        // Step 6: If there are no offers, print "Sorry, there are no offers for this restaurant."
+        if (offersOfRestaurant.isEmpty()) {
+            System.out.println("Sorry, there are no offers for this restaurant.");
+        } else {
+            // Step 7: User chooses an offer by its name
+            System.out.println("Enter the name of the offer: ");
+            String selectedOfferName = scanner.nextLine();
+
+            Offer selectedOffer = null;
+            for (Offer offer : offersOfRestaurant) {
+                if (selectedOfferName.equalsIgnoreCase(offer.getName())) {
+                    selectedOffer = offer;
+                    break;
+                }
+            }
+
+            // Step 8: The system prints all the information of the selected offer
+            if (selectedOffer != null) {
+                System.out.println("Offer Information:");
+                System.out.println("Offer Name: " + selectedOffer.getName());
+                System.out.println("Offer Description: " + selectedOffer.getDescription());
+                System.out.println("Offer Coupon Code: " + selectedOffer.getCouponcode());
+                System.out.println("Offer Discount: " + selectedOffer.getDiscount());
+                System.out.println("Offer Minimum Spent: " + selectedOffer.getMinSpent());
+            } else {
+                System.out.println("Offer not found.");
+            }
+        }
+    } else {
+        System.out.println("Restaurant not found.");
+    }
+
+    // Step 9: End the use case
+    scanner.close();
+}
+}
