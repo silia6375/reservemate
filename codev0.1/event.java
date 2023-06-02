@@ -154,3 +154,12 @@ public static void main(String[] args) {
         return citiesWithEvents;
     }
     
+    // Method to get an event by its name
+    public static Event getEventByName(String eventName) {
+        for (Event event : eventMap.values()) {
+            if (event.name.equalsIgnoreCase(eventName)) {
+                return event;
+            }
+        }
+        return null;
+    }
