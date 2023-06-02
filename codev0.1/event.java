@@ -79,7 +79,6 @@ public static void deleteEvent(int eventID) {
     }
 }
 
-}
 
 // Getters and Setters 
 public static void main(String[] args) {
@@ -141,3 +140,17 @@ public static void main(String[] args) {
     // Step 8: End the use case
     scanner.close();
 }
+
+// Additional methods (to be implemented)
+
+    // Method to get all cities with events
+    public static List<String> getCitiesWithEvents() {
+        List<String> citiesWithEvents = new ArrayList<>();
+        for (Event event : eventMap.values()) {
+            if (!citiesWithEvents.contains(event.city)) {
+                citiesWithEvents.add(event.city);
+            }
+        }
+        return citiesWithEvents;
+    }
+    
