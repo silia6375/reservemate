@@ -18,7 +18,7 @@ public class Event {
     private static Map<Integer, Event> eventMap = new HashMap<>(); // Map to store events by eventID
     
     // Constructor
-    public Event(int eventID, int restaurantID, String name, String description, Date start_time, Date end_time) {
+    public Event(int eventID, int restaurantID, String name, String city, String description, Date start_time, Date end_time) {
         this.eventID = eventID;
         this.restaurantID = restaurantID;
         this.name = name;
@@ -39,7 +39,7 @@ public class Event {
 public static List<Event> getEventsInCity(String city) {
     List<Event> eventsInCity = new ArrayList<>();
     for (Event event : eventMap.values()) {
-        if (event.getCity().equalsIgnoreCase(city)) {
+        if (event.city.equalsIgnoreCase(city)) 
             eventsInCity.add(event);
         }
     }
@@ -56,13 +56,13 @@ public static Event getEvent(int eventID) {
         Event event = eventMap.get(eventID);
         if (event != null) {
             if (newDescription != null) {
-                event.setDescription(newDescription);
+                event.description = newDescription ;
             }
             if (newStartTime != null) {
-                event.setStartTime(newStartTime);
+                event.start_time = newStartTime ;
             }
             if (newEndTime != null) {
-                event.setEndTime(newEndTime);
+                event.end_time = newEndTime ;
             }
             System.out.println("Event updated successfully.");
         } else {
@@ -153,7 +153,7 @@ public static void main(String[] args) {
         }
         return citiesWithEvents;
     }
-    
+
     // Method to get an event by its name
     public static Event getEventByName(String eventName) {
         for (Event event : eventMap.values()) {
