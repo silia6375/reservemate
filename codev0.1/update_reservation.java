@@ -83,3 +83,34 @@ this.time = time;
                 6, 2, "2023-06-18", "21:00");
         Reservation reservation5 = Reservation.createNewReservation(5, 123, 789, "Restaurant JKL",
                 2, 6,                "2023-06-21", "17:30");
+
+                // Display all reservations
+        System.out.println("All Reservations:");
+        for (Reservation reservation : reservations) {
+            reservation.getReservationInfo();
+            System.out.println("------------------------------");
+        }
+
+        // Prompt the user to choose a reservation to update
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the Reservation ID to update: ");
+        int reservationIDToUpdate = scanner.nextInt();
+
+        // Find the chosen reservation to update
+        Reservation reservationToUpdate = null;
+        for (Reservation reservation : reservations) {
+            if (reservation.reservationID == reservationIDToUpdate) {
+                reservationToUpdate = reservation;
+                break;
+            }
+        }
+
+        // Update the chosen reservation if found
+        if (reservationToUpdate != null) {
+            System.out.print("Enter the new number of people: ");
+            int numPeople = scanner.nextInt();
+            System.out.print("Enter the new date: ");
+            String date = scanner.next();
+            System.out.print("Enter the new time: ");
+            String time = scanner.next();
+
