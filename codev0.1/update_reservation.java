@@ -27,3 +27,18 @@ public class Reservation {
         this.date = date;
         this.time = time;
     }
+// Method to create a new reservation object
+public static Reservation createNewReservation(int reservationID, int userID, int restaurantID, String restaurant,
+int numPeople, int tableNum, String date, String time) {
+Reservation reservation = new Reservation(reservationID, userID, restaurantID, restaurant, numPeople, tableNum, date, time);
+reservations.add(reservation);
+return reservation;
+}
+
+// Method to update reservation information
+public void updateReservationInfo(int numPeople, String date, String time) {
+this.numPeople = numPeople;
+this.date = date;
+this.time = time;
+}
+
