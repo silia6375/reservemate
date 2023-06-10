@@ -59,3 +59,27 @@ this.time = time;
         System.out.println("Date: " + date);
         System.out.println("Time: " + time);
     }
+
+    // Method to get all reservations for a user
+    public static List<Reservation> getUserReservations(int userID) {
+        List<Reservation> userReservations = new ArrayList<>();
+        for (Reservation reservation : reservations) {
+            if (reservation.userID == userID) {
+                userReservations.add(reservation);
+            }
+        }
+        return userReservations;
+    }
+    
+    public static void main(String[] args) {
+        // Add 5 reservation objects with the same userID but different dates
+        Reservation reservation1 = Reservation.createNewReservation(1, 123, 456, "Restaurant XYZ",
+                2, 4, "2023-06-10", "19:30");
+        Reservation reservation2 = Reservation.createNewReservation(2, 123, 789, "Restaurant ABC",
+                4, 5, "2023-06-12", "18:00");
+        Reservation reservation3 = Reservation.createNewReservation(3, 123, 789, "Restaurant DEF",
+                3, 8, "2023-06-15", "20:30");
+        Reservation reservation4 = Reservation.createNewReservation(4, 123, 789, "Restaurant GHI",
+                6, 2, "2023-06-18", "21:00");
+        Reservation reservation5 = Reservation.createNewReservation(5, 123, 789, "Restaurant JKL",
+                2, 6,                "2023-06-21", "17:30");
