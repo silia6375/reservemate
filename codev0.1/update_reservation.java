@@ -42,3 +42,20 @@ this.date = date;
 this.time = time;
 }
 
+
+    // Method to delete the reservation
+    public void deleteReservation() {
+        reservations.remove(this);
+    }
+    
+    // Method to get reservation information
+    public void getReservationInfo() {
+        System.out.println("Reservation ID: " + reservationID);
+        System.out.println("User ID: " + userID);
+        System.out.println("Restaurant ID: " + restaurantID);
+        System.out.println("Restaurant: " + restaurant);
+        System.out.println("Number of People: " + numPeople);
+        System.out.println("Table Number: " + tableNum);
+        System.out.println("Date: " + date);
+        System.out.println("Time: " + time);
+    }
