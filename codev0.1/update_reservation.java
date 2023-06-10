@@ -114,3 +114,19 @@ this.time = time;
             System.out.print("Enter the new time: ");
             String time = scanner.next();
 
+
+
+            // Update the reservation
+            reservationToUpdate.updateReservationInfo(numPeople, date, time);
+            System.out.println("Reservation updated successfully:");
+            reservationToUpdate.getReservationInfo();
+            System.out.println("Changes have been saved.");
+            System.out.println("A confirmation email has been sent.");
+        } else {
+            System.out.println("Reservation not found!");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
