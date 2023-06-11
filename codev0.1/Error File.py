@@ -7,12 +7,12 @@
 class ErrorFile:
 
   # Constructor
-  def __init__(self, id, code, text):
+  def create_error_info(self, id, code, text):
     self.id = id
     self.code = code
     self.text = text
 
-  def CreateErrorLog(self, camera):
+  def get_error_info(self, camera):
 
     error_file = None
 
