@@ -7,11 +7,11 @@
 class Admin:
 
   # Constructor
-  def __init__(self, name, id):
+  def create_error_info(self, name, id):
     self.name = name
     self.id = id
 
-  def SendErrorLog(self, file):
+  def get_error_info(self, file):
 
     # Connecting with database
     dbname = get_database()
